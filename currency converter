@@ -1,0 +1,8 @@
+import requests
+
+API_URL = "https://api.exchangerate-api.com/v4/latest/USD"
+data = requests.get(API_URL).json()
+
+amount = float(input("Enter amount in USD: "))
+currency = input("Enter currency (e.g., EUR, GBP): ").upper()
+print(f"{amount} USD = {amount * data['rates'].get(currency, 1)} {currency}")
